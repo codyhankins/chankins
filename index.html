@@ -1,113 +1,187 @@
-<!DOCTYPE html>
-<html>
-
-<!-- Why is my code in a single file? Speed. I tried to make this site load as
-quickly as possible, with as little resources as possible. I hope you found it
-lightning fast. -->
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116546655-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cody Hankins</title>
+    <meta name="description" content="Personal Website">
+    <meta name="robots" content="index, follow">
+    <style>
+        @font-face {
+            font-family: 'Berkeley Mono';
+            src: url('assets/Berkeley-Mono-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Berkeley Mono';
+            src: url('assets/Berkeley-Mono-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        :root {
+            --color-background: #F2E8D5;
+            --color-primary: #472D1E;    
+            --color-secondary: #785942;  
+            --color-accent: #C25E00;    
+            --font-family: 'Berkeley Mono', monospace;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-background: #2A1E15; 
+                --color-primary: #F1E4CC;    
+                --color-secondary: #C2A87D;  
+                --color-accent: #E09142;     
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+        }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-primary);
+            background-color: var(--color-background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .container {
+            max-width: 650px;
+            width: 100%;
+        }
 
-  gtag('config', 'UA-116546655-1');
-</script>
-<script src="//instant.page/1.1.0" type="module" integrity="sha384-EwBObn5QAxP8f09iemwAJljc+sU+eUXeL9vSBw1eNmVarwhKk2F9vBEpaN9rsrtp"></script>
-<style>
-@import url('https://fonts.googleapis.com/css?family=Comfortaa');
-
-html {
-  	background-color: #62d6fa;
-}
-
-body {
-	background-color:rgb(237, 234, 228);
-}
-
-#main {
-   	font-family: "Comfortaa";
-   	text-align: center;
- 
-  	position:absolute;
-  	top:45%;
-  	left:50%;
-  	width:90%;
-  	padding:15px;
-  	-ms-transform: translateX(-50%) translateY(-50%);
-  	-webkit-transform: translate(-50%,-50%);
-  	transform: translate(-50%,-50%);
-}
-
-h1 {
-	font-size: 15px;
-	font-weight: normal;
-	color: #ffffff;
-	line-height: 5px;
-	-webkit-animation: fadein 1.5s;
-}
-
-p {
-	font-size: 10px;
-	font-weight: lighter;
-	color: rgb(218, 218, 218);
-	line-height: 15px;
-	-webkit-animation: fadein 2.75s;
-}
-
-a {
-	color:#663366;
-	font-size: 15px;
-}
-
-img.resize {
-  -webkit-animation: fadein 0.7s;
-  padding-bottom: 25px;
-  border-radius: 50%;
-  border-width: 2px;
-  border: black;
-  max-width:15%;
-  max-height:15%;
-}
-
-@media (min-width: 600px){
-  h1 {
-    font-size: 4.5vw;
-  }
-  p {
-  	font-size: 1.3vw;
-  	line-height: 25px;
-  }
-  a {
-  	font-size: 1.3vw;
-  }
-
-}
-
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-</style>
-<title>Cody Hankins</title>
-<link rel="icon" href="assets/cartoon_headshot.png">
+        header {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(166, 124, 82, 0.15);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        nav a:hover {
+            color: var(--color-primary);
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: normal;
+            color: var(--color-secondary);
+            margin-bottom: 40px;
+        }
+        
+        p {
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+        
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        a {
+            color: var(--color-primary);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+        }
+        
+        footer {
+            margin-top: 60px;
+            font-size: 12px;
+            color: var(--color-secondary);
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <div></div>
+            <nav>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/cody-hankins/" target="_blank">LinkedIn</a></li>
+                    <li><a href="assets/cody_hankins_resume_2025.pdf" target="_blank">Resume</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <h1>Cody Hankins</h1>
+            <h2>Software Engineer</h2>
+            
+            <p>
+                Engineer and tech lead with six years of experience. 
+                In the past, I've worked as a backend-leaning product engineer in the work management space.
+            </p>
+            
+            <p>
+                I'm currently a senior engineer at <a href="https://www.airtable.com/" target="_blank">Airtable</a>,
+                developing AI features for product organizations.
+            </p>
+        </main>
+        
+        <footer>
+            <div class="location-time">
+                <span id="local-time"></span>
+                <span>- New York, NY</span>
+            </div>
+            <span>Font is <a href="https://usgraphics.com/products/berkeley-mono" target="_blank">Berkeley Mono</a></span>
+        </footer>
+    </div>
 
-<div id="main">
-<img class="resize" src="assets/cartoon_headshot.png" alt="chankins">
-<h1>Cody Hankins</h1>
-<p id = "desc"> engineer @ asana in sf</p>
-<p>  </p>
-<p>
-	<a href="https://www.linkedin.com/in/cody-hankins" target="_blank"> linkedin</a> |
-	<a href="assets/cody_hankins_resume_2020.pdf" target="_blank">resume</a> |
-	<a href="assets/political_prediction_classifier.pdf" target="_blank">research</a> |
-	<a href="mailto:chankinsoft@gmail.com" target="_blank">email</a></p>
-</div>
-
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: false, 
+                timeZone: 'America/New_York'
+            };
+            const nyTimeString = new Intl.DateTimeFormat('en-US', options).format(now);
+            document.getElementById('local-time').textContent = nyTimeString;
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
 </body>
 </html>
